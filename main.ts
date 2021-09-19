@@ -8,17 +8,21 @@ class FileData{
         this.data=[]
     }
 }
-
-namespace labletFS{
+//% color=#0a59a8 weight=100 icon="\uf07c" block="LabletFS";
+namespace LabletFS{
     let isOpen:boolean=false
     let tx = SerialPin.P15
     let rx = SerialPin.P14
     let baud = 115200
     let timeout = 1000
-    export function openConfiguredFS(){
+    //% blockId="LabletFS_openDefaultFS"
+    //% block="openDefaultFS"
+    export function openDefaultFS(){
         serial.redirect(tx,rx,baud)
         isOpen=true
     }
+    //% blockId="LabletFS_readCommand"
+    //% block="readCommand $cmd"
     export function readCommand(cmd:string):string{
         serial.writeLine(cmd)
         let t0 = control.millis()
@@ -33,6 +37,8 @@ namespace labletFS{
         }
         return result
     }
+    //% blockId="LabletFS_list"
+    //% block="list content of directory"
     export function list():String[]{
         let r=readCommand("ls")
         return r.split('\r\n')
