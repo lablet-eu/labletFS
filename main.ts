@@ -31,7 +31,7 @@ namespace LabletFS{
         while (t - t0 < timeout) {
             let s = serial.readString()
             if (s.length <= 0) break
-            basic.showNumber(s.length)
+            basic.showString(s)
             result+=s
             t0 = t
             t = control.millis()
