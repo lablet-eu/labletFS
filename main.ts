@@ -31,6 +31,7 @@ namespace LabletFS{
         while (t - t0 < timeout) {
             let s = serial.readString()
             if (s.length <= 0) break
+            basic.showNumber(s.length)
             result+=s
             t0 = t
             t = control.millis()
@@ -40,7 +41,7 @@ namespace LabletFS{
     //% blockId="LabletFS_list"
     //% block="list content of directory"
     export function list():String[]{
-        let r=readCommand("ls")
+        let r=readCommand("ls\r\n")
         return r.split('\r\n')
     }
     export function readFile(name:string,offset:number):FileData{
