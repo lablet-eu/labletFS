@@ -11,8 +11,8 @@ class FileData{
 //% color=#0a59a8 weight=100 icon="\uf07c" block="LabletFS";
 namespace LabletFS{
     let isOpen:boolean=false
-    let tx = SerialPin.P1
-    let rx = SerialPin.P0
+    let tx = SerialPin.P15
+    let rx = SerialPin.P14
     let baud = 115200
     let timeout = 1000
     //% blockId="LabletFS_openDefaultFS"
